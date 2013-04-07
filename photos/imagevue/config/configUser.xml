@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<imagevue>
+		<settings>
+			<language>chinese_simp</language>
+			<email>
+				<allowEmail>true</allowEmail>
+				<ownerEmail>admin@tanglei.name</ownerEmail>
+			</email>
+		</settings>
+		<audioplayer>
+			<path>false</path>
+		</audioplayer>
+		<seo>
+			<keywords>中南大学软件学院,唐磊的相册</keywords>
+			<description>中南大学软件学院,唐磊的相册</description>
+		</seo>
+	</imagevue>
+</config>

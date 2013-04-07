@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<?php
+$conf = &ivPool::get('conf');
+$keywords = $conf->get('/config/imagevue/seo/keywords');
+$description = $conf->get('/config/imagevue/seo/description');
+$counters = $conf->get('/config/imagevue/seo/counters');
+?>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<meta name="keywords" content="<?php echo $keywords; ?>" />
+	<meta name="description" content="<?php echo $description; ?>" />
+	<title><?php echo $this->siteTitle; ?></title>
+	<link href="<?php echo IV_PATH; ?>css/forAdmin.css" rel="stylesheet" type="text/css" />
+	<link href="<?php echo IV_PATH; ?>css/forImagevue.css" rel="stylesheet" type="text/css" />
+	<meta http-equiv="Content-Type" content="text/html" />
+	<script type="text/javascript" src="<?php echo IV_PATH; ?>javascript/swfobject.js"></script>
+	<script type="text/javascript" src="<?php echo IV_PATH; ?>javascript/swfaddress.js"></script>
+	<style type="text/css">
+		body { 	background-color: #<?php echo $this->bkGrColor; ?>; }
+	</style>
+</head>
+<body>
+	<table>
+		<!-- #forAdmin -->	
+		<?php if (ivAcl::isAdmin()): ?>
+			<tr>
+				<td>
+					<div id="forAdmin">
+						<div class="right"><?php echo htmlspecialchars(ivAuth::getCurrentUserLogin()) ?>
+							<a href="#" title="隐藏管理工具栏" onclick="document.getElementById('forAdmin').style.display = 'none';return false;">&times; 隐藏</a>
+						</div>
+						<a id="editPageLink" href="imagevue/?path=<?php echo $this->placeholder->get('currentPath'); ?>" title="相册管理/文件管理">编辑此页面 &raquo;</a> 
+						<a id="htmlVersionLink" href="?<?php echo $this->placeholder->get('currentPath'); ?>" title="浏览HTML版相册">HTML 相册 &raquo;</a> 
+						<a id="makeThumbsLink" href="imagevue/?a=makethumbs&amp;path=<?php echo $this->placeholder->get('currentPath'); ?>" title="重建该目录/图片的缩略图">重建缩略图 &raquo;</a>
+						<a href="imagevue/?c=config" title="更改 <?php echo $this->siteTitle; ?> 设置">设置 &raquo;</a> 
+						<!-- <a href="?a=index">API Reference &raquo;</a>  -->
+					</div>
+					<script type="text/javascript">
+					//<![CDATA[
+					SWFAddress.addEventListener(SWFAddressEvent.CHANGE, function(event) {
+						var path = SWFAddress.getPath().substr(1);
+						document.getElementById('editPageLink').href = 'imagevue/?path=' + path;
+						document.getElementById('htmlVersionLink').href = '?' + path;
+						var makeThumbsLink = document.getElementById('makeThumbsLink');
+						if (/[^\/]+\.[^\/]+\/$/.test(path)) {
+							makeThumbsLink.style.display = 'none';
+						} else {
+							makeThumbsLink.style.display = '';
+							makeThumbsLink.href = 'imagevue/?a=makethumbs&path=' + path;
+						}
+					});
+					// ]]>
+					</script>
+				</td>
+			</tr>
+		<?php endif; ?>
+		<!-- /forAdmin -->
+		<tr>
+			<td class="imagevue">
+				<div class="imagevue">
+					<div id="imagevue">
+						<div id="na">
+							<h1>
+								哎呦！ - 该页面需要Flash Player和Javascript支持！
+							</h1>
+							<br/>
+							请确保你已经安装了最新的Flash Player控件和支持Javascript的浏览器。<br/>
+							&raquo; <a href="?p=gallery">Flash 相册</a><br/>
+							&raquo; <a href="http://get.adobe.com/flashplayer/">获得Flash Player控件</a><br/>
+							<br/>
+							<?php if ($this->enabledHTML): ?>或者你可以浏览HTML相册:<br/>
+								&raquo; <a href="?p=html">HTML 相册</a><br/>
+								&raquo; <a href="?p=sitemap">HTML 站点地</a><br/>
+								<br/>
+							<?php endif; ?>
+						</div>
+					</div>
+				</div>
+
+				<script type="text/javascript">
+				//<![CDATA[
+				<?php if (count($this->vars)): ?>
+				var flashVars = {
+					foreground_color: '<?php echo $this->frGrColor; ?>',
+					background_color: '<?php echo $this->bkGrColor; ?>'
+				};
+				<?php foreach ($this->vars as $key => $value): ?>
+				flashVars.<?php echo $key; ?> = '<?php echo $value; ?>';
+				<?php endforeach; ?>
+				<?php endif; ?>
+
+				swfobject.embedSWF("<?php echo IV_PATH; ?>imagevue2.swf", "imagevue", "100%", "100%", "8.0.0", "<?php echo IV_PATH; ?>expressInstall.swf", flashVars, {allowScriptAccess: 'always', allowFullScreen: true, bgcolor: '#<?php echo $this->bkGrColor; ?>'}, {id: 'imagevue', name: 'imagevue'});
+				// ]]>
+				</script>
+			</td>
+		</tr>
+	</table>
+<?php echo $counters; ?>	
+</body>
+</html>

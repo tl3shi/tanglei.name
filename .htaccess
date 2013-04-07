@@ -1,0 +1,57 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^i3zhai\.lampthneo\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.i3zhai\.lampthneo\.com$
+RewriteRule ^/?$ "http\:\/\/www\.tanglei\.name" [R=301,L]
+
+
+
+RewriteCond %{HTTP_HOST} ^blog.i3zhai.com$
+RewriteRule ^(.*)$ "http\:\/\/www\.tanglei\.name\/$1" [R=301,L]
+
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+deny from 42.62.37.1/32
+deny from 42.62.37.2/31
+deny from 42.62.37.4/30
+deny from 42.62.37.8/29
+deny from 42.62.37.16/28
+deny from 42.62.37.32/27
+deny from 42.62.37.64/26
+deny from 42.62.37.128/26
+deny from 42.62.37.192/27
+deny from 42.62.37.224/28
+deny from 42.62.37.240/29
+deny from 42.62.37.248/30
+deny from 42.62.37.252/31
+deny from 42.62.37.254/32
+deny from 61.55.181.1/32
+deny from 61.55.181.2/31
+deny from 61.55.181.4/30
+deny from 61.55.181.8/29
+deny from 61.55.181.16/28
+deny from 61.55.181.32/27
+deny from 61.55.181.64/26
+deny from 61.55.181.128/26
+deny from 61.55.181.192/27
+deny from 61.55.181.224/28
+deny from 61.55.181.240/29
+deny from 61.55.181.248/30
+deny from 61.55.181.252/31
+deny from 61.55.181.254/32

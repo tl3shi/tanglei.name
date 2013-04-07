@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is the default CONFIG settings file with descriptions and parameters. You should not edit this XML manually - Any changes should be done through the admin, which creates a USERconfig.xml file in your imagevue/config/ directory -->
+<config>
+	<imagevue>
+		<settings>
+			<contentfolder type="string" description="设置主目录默认的文件夹，其中包含所有的图像和文件夹">content/</contentfolder>
+			<startpath type="dir" description="设置在首页显示的相册文件夹，如果设置错误则不会有相册在首页自动显示">content/start/</startpath>
+			<startmode type="enum" description="设置相册首页显示方式，缩略图模式或者全尺寸模式" options="thumbnails,image">thumbnails</startmode>
+			<language type="language" description="输入你想使用的语言名称，该语言名称必须是一个存在的语言文件包">english</language>
+			<useswfaddress type="boolean" description="使用 SWFAddress 模块，开启Flash深层链接和浏览器导航（一般不勾选，以便隐藏图片具体地址）">true</useswfaddress>
+			<url_params type="array" separator="," description="设置一组允许在URL中直接定义的参数">globalpath, theme, contentfolder, startpath, startmode, language, maincontrols, stylesheet</url_params>
+			<allowedext type="array" separator="," description="设置ImageVue支持的文件类型">mp3, jpg, png, gif, jpeg, swf, doc, docx, flv, html, pdf, txt</allowedext>
+			<excludefilesprefix type="array" separator="," description="设置在支持的文件类型中需要排除的前缀">tn_, thumb_</excludefilesprefix>
+			<includefilesext type="array" separator="," description="设置默认需要处理的文件类型">jpg, gif, png, jpeg, flv, swf, docx, doc, html, txt, pdf</includefilesext>
+			<dateformat type="string" description="设置时间显示格式">d.m.Y</dateformat>
+			<theme type="theme" description="设置默认主题">default</theme>
+			<sitetitle type="string" description="设置相册标题">Imagevue Gallery</sitetitle>
+			<chmod type="string" description="文件和文件夹访问权限，仅在Unix类主机中有效">777</chmod>
+			<defaultPage description="默认载入页面" type="enum" options="gallery,html">gallery</defaultPage>
+			<useCache description="开启缓存" type="boolean">true</useCache>
+			<useLightview description="使用LightView特效" type="boolean">false</useLightview>
+			<defaultSortFolders description="默认的文件夹排序方式（auto自动排序，na名称升序，nd名称降序，da日期升序，dd日期降序，sa大小升序，sd大小降序，rnd随机排序）" type="enum" options="auto,na,nd,da,dd,sa,sd,rnd">na</defaultSortFolders>
+			<defaultSortFiles description="默认的文件排序方式（auto自动排序，na名称升序，nd名称降序，da日期升序，dd日期降序，sa大小升序，sd大小降序，rnd随机排序）" type="enum" options="auto,na,nd,da,dd,sa,sd,rnd">na</defaultSortFiles>
+			<uploader description="文件上传方式" type="enum" options="html,swfupload,yuiuploader">swfupload</uploader>
+			<enableHTML description="HTML版相册是否可用，如果选择False那么你只有Flash版相册" type="boolean">true</enableHTML>
+			<autoTitling description="将文件名设置为默认标题，如果不勾选，你需要手动添加，否则标题为空" type="boolean">true</autoTitling>
+			<codepage>
+				<id3 description="使用何种国际字符集来转换ID3标签（可以改为UTF-8、GB2312）">ISO-8859-2</id3>
+			</codepage>
+			<attributes>
+				<image type="array" separator="," description="自定义有效的图片属性" options="custom,link,purchase,hotspot_coordinates,hotspot_url"></image>
+				<folder type="array" separator="," description="自定义有效的文件夹属性" options="url1"></folder>
+			</attributes>
+			<email>
+				<allowEmail type="boolean" description="开启/禁用 Mail 函数">false</allowEmail>
+				<ownerEmail type="array" description="你的Email地址，使用‘,’分隔多个Email地址">you@youremail.com,another@youremail.com</ownerEmail>
+				<contactSubj type="string" description="系统邮件默认标题">Message from Imagevue contact form</contactSubj>
+				<sendlinkSubj type="string" description="页面邮件默认标题">You have received a link from [senderName]!</sendlinkSubj>
+			</email>
+		</settings>
+		<controls>
+			<maincontrols>
+				<enabled type="boolean" description="启用或禁用主控制模块（在缩略图区域和单张图片下方显示控制条）">true</enabled>
+				<items type="array" description="主控制模块中需要显示的按钮（togglethumbnails缩略图，previous上一张，scrollinfo滚动条信息，next下一张，toggleplay幻灯片，sfx音效，togglefullscreen全屏，zoomin放大，zoomout放小，link链接，purchase购买，sendlink发送连接，contact联系）" options="togglethumbnails,previous,scrollinfo,next,toggleplay,sfx,togglefullscreen,zoomin,zoomout,link,purchase,sendlink,contact">togglethumbnails,previous,scrollinfo,next,toggleplay,togglefullscreen</items>
+				<autohide type="boolean" description="仅当屏幕大小合适时显示主控制模块">true</autohide>
+				<align type="enum" description="设置主控制模块对齐方式" options="ITL,ITM,ITR,IRT,IRM,IRB,IBR,IBM,IBL,ILB,ILM,ILT,OITL,OITM,OITR,OIRM,OIBR,OIBM,OIBL,OILM,OIM,TL,T,TR,R,BR,B,BL,L,M">B</align>
+				<margin type="integer" description="设置主控制模块的边距，注意它的对齐方式" range="0,200">70</margin>
+				<locktothumbnails type="boolean" description="在缩略图滚动时，主控制模块是否自动对齐（建议勾选，避免主控制模块错位）">true</locktothumbnails>
+			</maincontrols>
+			<largecontrols>
+				<enabled type="boolean" description="开启上一张/下一张控制按钮">true</enabled>
+				<autohide type="boolean" description="当鼠标不活动时自动隐藏按钮">true</autohide>
+				<align type="enum" description="设置按钮的显示位置" options="stage,outside_image,inside_image">stage</align>
+				<margin type="integer" description="设置按钮的边距">50</margin>
+			</largecontrols>
+			<rightclick>
+				<controls type="array" description="右键菜单功能设置（next下一张,previous上一张,popup弹出窗口,window新窗口,download下载,zoomin放大,zoomout放小,togglethumbnails缩略图,toggleplay幻灯片,sendlink发送连接,link连接,purchase购买,copylocation复制位置,sfx音效,togglefullscreen全屏,contact联系）" options="next,previous,popup,window,download,zoomin,zoomout,togglethumbnails,toggleplay,sendlink,link,purchase,copylocation,sfx,togglefullscreen,contact">next,previous,popup,window,download,zoomin,zoomout,togglethumbnails,toggleplay,sendlink,copylocation,sfx,togglefullscreen,contact</controls>
+			</rightclick>
+			<keycontrols type="boolean" description="在相册导航中开启箭头控制">true</keycontrols>
+			<altimage type="boolean" description="在弹出窗口、新窗口打开、下载图片时，在其URL中增加'_altimage/'前缀（建议不勾选）">false</altimage>
+		</controls>
+		<audioplayer>
+			<enabled type="boolean" description="开启或关闭音乐播放器">true</enabled>
+			<path type="dir" description="设置音乐播放器的默认文件夹">content/mp3/</path>
+			<use_imagefolder type="boolean" description="从图片文件夹中加载音乐">false</use_imagefolder>
+			<autostart type="boolean" description="当相册开始时自动播放音乐">true</autostart>
+			<startvolume type="integer" description="设置音乐播放器的初始音量" range="1,100">75</startvolume>
+			<repeat tye="integer" description="设置音乐文件或音乐列表的循环次数，0为无限循环">0</repeat>
+			<minimum_connection type="integer" description="设置最小连接速度kb/s">20</minimum_connection>
+			<sorting type="enum" description="设置音乐列表中音乐文件的排序方式（na名称升序，nd名称降序，da日期升序，dd日期降序，sa大小升序，sd大小降序，rnd随机排序）" options="na,nd,da,dd,sa,sd,rnd">rnd</sorting>
+			<id3tags type="array" description="设置需要显示的ID3标签">TIT2,TPE1</id3tags>
+			<showplaylist type="boolean" description="显示或隐藏播放列表">true</showplaylist>
+			<showcontrols type="boolean" description="显示或隐藏控制按钮">true</showcontrols>
+		</audioplayer>
+		<image>
+			<image>
+				<margin type="integer" description="设置图片最低边距" range="0,500">120</margin>
+				<scale type="enum" description="设置图片比例缩放方式 (fitmargin加边,original原始,fitstage自动适应背景,croptostage裁切适应背景)" options="fitmargin,original,fitstage,croptostage">fitmargin</scale>
+				<original_optimized type="boolean" description="当页面合适时自动以原始尺寸显示图片，可能会看不到控制按钮和图片描述">false</original_optimized>
+				<click type="enum" description="设置当鼠标单击当前图片时触发的事件（false无效,showthumbnails缩略图,next下一张,popup弹出窗口打开,window新窗口打开,download下载,togglefullscreen全屏,toggleplay幻灯片,link连结）" options="false,showthumbnails,next,popup,window,download,togglefullscreen,toggleplay,link">next</click>
+				<shiftclick type="enum" description="设置当鼠标“Shift + 单击”当前图片时触发的事件（false无效,showthumbnails缩略图,next下一张,popup弹出窗口打开,window新窗口打开,download下载,togglefullscreen全屏,toggleplay幻灯片,link连结）" options="false,showthumbnails,next,previous,popup,window,download,togglefullscreen,toggleplay">window</shiftclick>
+			</image>
+			<slideshow>
+				<autostart type="boolean" description="自动开始播放幻灯片">false</autostart>
+				<interval type="integer" description="设置图片显示间隔时间(秒)" range="0,100">6</interval>
+				<end_event type="event" description="设置幻灯片结束时的动作" options="loop,stop,thumbnails,startpath,url">loop</end_event>
+				<jsresize type="boolean" description="在幻灯片模式下自动调整弹出窗口大小">false</jsresize>
+			</slideshow>
+			<imagebuttons>
+				<enabled type="boolean" description="在当前图片上方显示一组按钮">true</enabled>
+				<align type="enum" description="设置按钮对齐方式" options="ITL,ITM,ITR,IRT,IRM,IRB,IBR,IBM,IBL,ILB,ILM,ILT,OITL,OITM,OITR,OIRM,OIBR,OIBM,OIBL,OILM,OIM">OITR</align>
+				<autohide type="boolean" description="只在鼠标经过图片时显示按钮">true</autohide>
+				<buttons type="array" description="选择在图片上需要显示的按钮（imageinfo图片信息,window新窗口打开,popup弹出窗口打开,copylocation复制位置,link连接,purchase购买,download下载,sendlink发送链接,contact联系,zoomin放大,zoomout放小,togglefullscreen全屏）" options="imageinfo,window,popup,copylocation,link,purchase,download,sendlink,contact,zoomin,zoomout,togglefullscreen">window,popup,download,zoomin,zoomout</buttons>
+				<margin type="integer" description="设置图片和按钮之间的距离" range="0,100">20</margin>
+			</imagebuttons>
+			<closebutton>
+				<enabled type="boolean" description="在图片右上方显示一个关闭按钮，点击时将会返回缩略图">true</enabled>
+				<autohide type="boolean" description="自动隐藏关闭按钮，仅当鼠标在图片上方时显示">true</autohide>
+			</closebutton>
+			<text>
+				<text1>
+					<enabled type="boolean" description="是否在图片中显示文本信息">true</enabled>
+					<style type="enum" description="设置文本信息的显示位置（auto自动,right右边,left左边,below下面,above上面,over_image_top穿过图片顶部,over_image_bottom穿过图片底部,over_image_left穿过图片左边,over_image_right穿过图片右边）" options="auto,right,left,below,above,over_image_top,over_image_bottom,over_image_left,over_image_right">above</style>
+					<event type="enum" description="设置文本信息的触发方式（static静态,rollover动态,imageinfo_button图片信息按钮）" options="static,rollover,imageinfo_button">static</event>
+					<items type="array" description="设置文本信息的具体显示项目（imageindex图像索引,titlepath标题路径,title标题,filename文件名,dimensions图片尺寸,filesize文件大小,date日期,folderdescription文件夹描述,description图片描述,custom自定义,exif拍摄信息,link链接,filelink文件链接,purchase购买,download下载,folderpath文件夹路径,foldername文件夹名称,abslink绝对链接地址）" options="imageindex,titlepath,title,filename,dimensions,filesize,date,folderdescription,description,custom,exif,link,filelink,purchase,download,folderpath,foldername,abslink">title,description</items>
+					<width type="string" description="设置文本项目的位置或宽度，可以设置成图片宽度的百分比">200</width>
+					<margin type="integer" description="设置文本框的边距" range="0,100">0</margin>
+					<min_width type="integer" description="最小宽度">200</min_width>
+					<scaleheight type="enum" description="高度等级" options="max,min">min</scaleheight>
+					<height type="string" description="设置文本项目的最大高度，可以是数字或百分比">200</height>
+				</text1>
+				<text2>
+					<enabled type="boolean" description="是否在图片中显示文本信息">true</enabled>
+					<style type="enum" description="设置文本信息的显示位置（auto自动,right右边,left左边,below下面,above上面,over_image_top穿过图片顶部,over_image_bottom穿过图片底部,over_image_left穿过图片左边,over_image_right穿过图片右边）" options="auto,right,left,below,above,over_image_top,over_image_bottom,over_image_left,over_image_right">over_image_right</style>
+					<event type="enum" description="设置文本信息的触发方式（static静态,rollover动态,imageinfo_button图片信息按钮）" options="static,rollover,imageinfo_button">rollover</event>
+					<items type="array" description="设置文本信息的具体显示项目（imageindex图像索引,titlepath标题路径,title标题,filename文件名,dimensions图片尺寸,filesize文件大小,date日期,folderdescription文件夹描述,description图片描述,custom自定义,exif拍摄信息,link链接,filelink文件链接,purchase购买,download下载,folderpath文件夹路径,foldername文件夹名称,abslink绝对链接地址）" options="imageindex,title,filename,dimensions,filesize,date,folderdescription,description,custom,exif,link,filelink,purchase,download,folderpath,foldername,abslink">exif</items>
+					<width type="string" description="设置文本项目的位置或宽度，可以设置成图片宽度的百分比">250</width>
+					<margin type="integer" description="设置文本框的边距" range="0,100">1</margin>
+					<min_width type="integer" description="最小宽度">200</min_width>
+					<scaleheight type="enum" description="高度等级" options="max,min">min</scaleheight>
+					<height type="string" description="设置文本项目的最大高度，可以是数字或百分比">500</height>
+				</text2>
+				<text3>
+					<enabled type="boolean" description="是否在图片中显示文本信息">false</enabled>
+					<style type="enum" description="设置文本信息的显示位置（auto自动,right右边,left左边,below下面,above上面,over_image_top穿过图片顶部,over_image_bottom穿过图片底部,over_image_left穿过图片左边,over_image_right穿过图片右边）">right</style>
+					<event type="enum" description="设置文本信息的触发方式（static静态,rollover动态,imageinfo_button图片信息按钮）" options="static,rollover,imageinfo_button">static</event>
+					<items type="array" description="设置文本信息的具体显示项目（imageindex图像索引,titlepath标题路径,title标题,filename文件名,dimensions图片尺寸,filesize文件大小,date日期,folderdescription文件夹描述,description图片描述,custom自定义,exif拍摄信息,link链接,filelink文件链接,purchase购买,download下载,folderpath文件夹路径,foldername文件夹名称,abslink绝对链接地址）" options="imageindex,title,filename,dimensions,filesize,date,folderdescription,description,custom,exif,link,filelink,purchase,download,folderpath,foldername,abslink">imageindex,title,filename,dimensions,filesize,date,description,filelink,download</items>
+					<width type="string" description="设置文本项目的位置或宽度，可以设置成图片宽度的百分比">200</width>
+					<margin type="integer" description="设置文本框的边距" range="0,100">1</margin>
+					<min_width type="integer" description="最小宽度">200</min_width>
+					<scaleheight type="enum" description="高度等级" options="max,min">min</scaleheight>
+					<height type="string" description="设置文本项目的最大高度，可以是数字或百分比">500</height>
+				</text3>
+			</text>
+			<imagelayer>
+				<layer>
+					<enabled type="boolean" description="开启或关闭图层">false</enabled>
+					<filepath type="file" description="文件路径">shape.swf</filepath>
+					<opacity type="integer" description="设置图层的不透明度" range="0,100">100</opacity>
+					<align type="enum" description="设置图层排列方式" options="OITL,OITM,OITR,OIRM,OIBR,OIBM,OIBL,OILM,OIM">OITL</align>
+					<margin type="integer" description="设置图层距图片边距" range="0,500">1</margin>
+				</layer>
+			</imagelayer>
+		</image>
+		<thumbnails>
+			<thumbnail>
+				<resizetype type="enum" options="resizetobox,croptobox" description="创建缩略图的方式(resizetobox为缩放式,croptobox为裁剪式)">croptobox</resizetype>
+				<keepaspect type="boolean" description="如果设置为true，缩略图将始终保持原始比例">true</keepaspect>
+				<allowscaleup type="boolean" description="是否允许放大尺寸较小的图片">false</allowscaleup>
+				<quality type="integer" range="1,100" description="缩略图默认质量(1-100)">90</quality>
+				<boxwidth type="integer" description="设置缩略图的宽度">120</boxwidth>
+				<boxheight type="integer" description="设置缩略图的高度">90</boxheight>
+				<click type="enum" description="设置缩略图单击时触发的事件" options="false,open,window,popup,download,link">open</click>
+				<shiftclick type="enum" description="设置缩略图“Shift + 单击”时触发的事件" options="false,open,window,popup,download,link">popup</shiftclick>
+			</thumbnail>
+			<thumbnails>
+				<margin type="array" description="设置缩略图与屏幕边缘的距离，上右下左">100,100,200,100</margin>
+				<min_width type="integer" description="设置缩略图区域最小宽度" range="0,2000">200</min_width>
+				<min_height type="integer" description="设置缩略图区域最小高度" range="0,2000">200</min_height>
+				<max_width type="integer" description="设置缩略图区域最大宽度" range="0,2000">700</max_width>
+				<max_height type="integer" description="设置缩略图区域最大高度" range="0,2000">600</max_height>
+				<text type="array" description="设置在缩略图上显示的文字项目" options="breadcrumbs,pagecount,title,description">breadcrumbs,title,pagecount,description</text>
+				<pagebuttons type="boolean" description="开启或关闭在缩略图下方的页面控制按钮">true</pagebuttons>
+			</thumbnails>
+			<thumbnailscroller>
+				<enabled type="boolean" description="开启或关闭缩略图滚动">true</enabled>
+				<autohide type="boolean" description="如果设置为true,自动隐藏滚动条">false</autohide>
+				<autohide_offset type="integer" description="当滚动条隐藏时显示多少">10</autohide_offset>
+				<tooltip type="boolean" description="继承标准缩略图的相应工具提示">true</tooltip>
+			</thumbnailscroller>
+			<tooltip>
+				<enabled type="boolean" description="开启或关闭缩略图提示项目">true</enabled>
+				<items type="array" description="设置要显示的缩略图提示项目" options="name,title,date,description">title,description</items>
+				<interval type="integer" description="设置缩略图提示项目显示延迟时间" range="0,2000">500</interval>
+			</tooltip>
+		</thumbnails>
+		<menu>
+			<mainmenu>
+				<enabled type="boolean" description="开启相册主菜单">true</enabled>
+				<submenu_style type="enum" description="设置子菜单的显示方式，垂直或水平" options="vertical,horizontal">vertical</submenu_style>
+				<close_same_level type="boolean" description="同级菜单只可以展开一个节点">false</close_same_level>
+				<autohide type="boolean" description="当菜单不活动时自动隐藏">true</autohide>
+				<startshow type="boolean" description="如果设置为true，启动时自动显示菜单">false</startshow>
+				<x_offset type="integer" description="设置菜单距左上角的横坐标">10</x_offset>
+				<folderdescription>
+					<enabled type="boolean" description="开启或关闭主菜单的描述和预览图提示框">true</enabled>
+					<items type="array" description="主菜单提示框需要显示的项目" options="title,filecount,date,description,previewimage">title,filecount,description,previewimage</items>
+				</folderdescription>
+			</mainmenu>
+		</menu>
+		<misc>
+			<sfx>
+				<enabled type="boolean" description="开启或关闭声音特效">true</enabled>
+				<volume type="integer" description="设置相关音效的音量1-100" range="1,100">100</volume>
+			</sfx>
+			<video>
+				<controlsAutoHide type="boolean" description="自动隐藏视频控制按钮，仅当鼠标移上时显示">true</controlsAutoHide>
+				<autoPlay type="boolean" description="设置视频为自动播放。如果设置为false，需要点击播放按钮打开视频">true</autoPlay>
+				<bufferTime type="interger" description="设置加载视频的缓冲时间">3</bufferTime>
+				<stopAudioPlayer type="boolean" description="当加载视频时关闭音频播放器，为视频文件提供音频空间">true</stopAudioPlayer>
+			</video>
+		</misc>
+		<modules>
+			<filemod>
+				<align type="enum" description="设置文件模块的排列方式" options="TL,T,TR,R,BR,B,BL,L,M">M</align>
+				<frame type="boolean" description="在文件模块下设置一个框架，其继承相关图片参数">true</frame>
+				<text type="boolean" description="在文件模块上显示文本">true</text> 
+				<textalign type="enum" description="设置文本的排列地点" options="above,over">above</textalign>
+			</filemod>
+			<hotspot>
+				<enabled type="boolean" description="开启热点模块">false</enabled>
+				<event type="enum" description="设置触发热点链接的事件" options="static,rollover">rollover</event>
+				<url_prefix type="string" description="为所有的热点链接设置一个url前缀">http://www.domain.com/</url_prefix>
+				<window_target type="enum" description="为所有的热点链接设置一个打开方式" options="_blank,_parent,_top">_blank</window_target>
+			</hotspot>
+		</modules>
+		<seo>
+			<keywords type="string" description="为网站添加关键词，每个关键词用“,”隔开，这些关键词会添加进代码中以便于搜索引擎收录">imagevue, flash, photo, image, gallery, slideshow</keywords>
+			<description type="string" description="为你的站点添加描述，这些描述将被添加到代码中，另外，搜索引擎会在它们的站点清单中显示这些关于你站点的信息">Another Imagevuex.com gallery</description>
+			<counters type="text" description="添加第三方统计代码"></counters>
+			<disableSitemap type="boolean" description="站点地图是否可用">false</disableSitemap>
+		</seo>
+	</imagevue>
+</config>

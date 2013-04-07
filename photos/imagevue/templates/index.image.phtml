@@ -1,0 +1,89 @@
+<?php
+	$this->placeholder->set('currentPath', $this->file->getProperty('path'));
+	$this->placeholder->set('currentTitle', $this->file->getTitle());
+	$fileProperties = $this->file->getProperties();
+	$fileAttributes = $this->file->getAttributes();
+	$parentFolder = $this->file->getAncestor();
+?>
+
+<div id="navigation">
+	<a href="?<?php echo urlencode($parentFolder->getProperty('path')); ?>" title="back to thumbnails">&laquo;</a><a href="?<?php echo urlencode($this->prevFile->getProperty('path')); ?>" title="previous image">&lsaquo;</a>
+	<span class="naviCount"><?php echo $this->current; ?>/<?php echo $this->count; ?></span>
+	<a href="?<?php echo urlencode($this->nextFile->getProperty('path')); ?>" title="next image">&rsaquo;</a>
+</div>
+
+<table align="center" id="image">
+	<tr>
+		<td>
+			<a href="?<?php echo urlencode($this->nextFile->getProperty('path')); ?>" title="<?php echo $this->file->getTitle(); ?>">
+				<img src="<?php echo $this->file->getProperty('path'); ?>" alt="<?php echo $this->file->getTitle(); ?>" id="myimage" width="<?php echo $fileProperties['width']; ?>" height="<?php echo $fileProperties['height']; ?>" />
+			</a>
+			<div id="imagetext">
+				<h1 class="title">
+						<?php echo $this->file->getTitle(); ?>
+				</h1>
+				<?php if (!empty($fileAttributes['description'])): ?>
+					<h2 class="description">
+						<?php echo $fileAttributes['description']; ?>
+					</h2>
+				<?php endif; ?>
+				<div class="imageAttributes">
+					<?php
+						$count = 0;
+						foreach ($fileAttributes as $key => $value) {
+							if (!in_array($key, array('title', 'description')) && !empty($value)) {
+								$count++;
+							}
+						}
+					?>
+					<?php if ($count): ?>
+						<table style="width: 100%">
+							<?php foreach ($fileAttributes as $key => $value): ?>
+								<?php if (!in_array($key, array('title', 'description')) && !empty($value)): ?>
+									<tr>
+										<td><?php echo ucfirst($key); ?></td>
+										<td><?php echo $value; ?></td>
+									</tr>
+								<?php endif; ?>
+							<?php endforeach; ?>
+						</table>
+					<?php endif; ?>
+				</div>
+				<div class="imageProperties">
+					<div class="filename"><?php echo $fileProperties['name']; ?></div>
+					<div class="date"><?php echo formatDate($fileProperties['date']); ?></div>
+					<div class="dimensions"><?php echo $fileProperties['width']; ?> x <?php echo $fileProperties['height']; ?></div>
+					<div class="filesize"><?php echo formatFilesize($fileProperties['size']); ?></div>
+				</div>
+				<?php $exifData = $this->file->getExifData(); ?>
+				<?php if (!empty($exifData)): ?>
+					<div class="exifData">
+						<div class="exif_heading">exif data</div>
+						<table>
+							<?php foreach ($exifData as $key => $value): ?>
+								<tr>
+									<td><?php echo $key; ?></td>
+									<td><?php echo $value; ?></td>
+								</tr>
+							<?php endforeach; ?>
+						</table>
+					</div>
+				<?php endif; ?>
+				<?php $iptcData = $this->file->getIptcData(); ?>
+				<?php if (!empty($iptcData)): ?>
+					<div class="exifData">
+						<div class="exif_heading">iptc data</div>
+						<table>
+							<?php foreach ($iptcData as $key => $value): ?>
+								<tr>
+									<td><?php echo $key; ?></td>
+									<td><?php echo is_array($value) ? implode("\n", $value) : $value; ?></td>
+								</tr>
+							<?php endforeach; ?>
+						</table>
+					</div>
+				<?php endif; ?>
+			</div>
+		</td>
+	</tr>
+</table>

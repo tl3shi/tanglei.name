@@ -1,0 +1,29 @@
+* { margin: 0; padding: 0; outline: 0;}
+html { height: 100%; }
+body { height: 100%; line-height: 0px;}
+table { border-collapse: collapse; width: 100%; height: 100%;}
+.imagevue, #imagevue { height: 100%; }
+
+#imagevue #na {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color:#555555;
+	margin: 20px;
+	padding: 20px;
+	line-height: 19px;
+	background-color: #EFEFEF;
+}
+#imagevue #na h1{
+	font-size: 13px;
+	display: inline;
+}
+#imagevue #na a{
+	text-decoration: none;
+	color:#99CC00;
+	font-weight: bold;
+	font-size: 13px;
+}
+#imagevue #na a:hover{
+	background-color:#DCEEB9;
+}
+

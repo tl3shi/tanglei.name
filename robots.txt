@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /wp-
+Disallow: /private-
+Disallow: /category/private/
+Disallow: /*?*

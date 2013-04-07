@@ -1,0 +1,45 @@
+<div id="content">
+	<div id="rightmenu">
+		<div class="box">
+			<div class="heading ivrm" id="config_content"><?php echo $this->lang; ?> 语言</div>
+			<div class="content actions">
+				<?php foreach ($this->langs as $lang): ?>
+					<?php if ($this->lang != $lang): ?>
+						<a class="myicon" href="index.php?c=lang&amp;name=<?php echo $lang; ?>"><?php echo ucfirst($lang); ?></a>
+					<?php endif; ?>
+				<?php endforeach; ?>
+				<br />
+				<a class="myicon" href="#" onclick="var langName = window.prompt('请输入新语言包名称'); if (langName) {location.href = 'index.php?c=lang&amp;name=' + langName;} return false;">创建新语言包</a>
+			</div>
+		</div>
+	</div>
+	<div id="leftcontent">
+		<h1>
+			<?php echo ucfirst($this->lang); ?>
+		</h1>
+		<form method="post" action="">
+			<p>
+				<input type="submit" name="save" value="保存" />
+				<input type="button" value="使用这个语言包" onclick="location.href = 'index.php?c=lang&amp;a=use&amp;name=<?php echo $this->lang; ?>'; return false;" />
+			</p>
+			<div id="config">
+				<div id="formtree">
+					<?php $id = 1; ?>
+					<?php foreach ($this->flatConfig as $itemInfo): ?>
+						<?php if (0 < $itemInfo['depth']): ?>
+							<div class="item">
+								<?php echo $itemInfo['node']->getName(); ?>:<br />
+								<?php echo $itemInfo['node']->toFormElement("lang[{$itemInfo['path']}]", $id); ?>
+							</div>
+						<?php endif; ?>
+						<?php $id++; ?>
+					<?php endforeach; ?>
+				</div>
+			</div>
+			<div>
+				<input type="submit" name="save" value="保存" />
+				<input type="button" value="使用这个语言包" onclick="location.href = 'index.php?c=lang&amp;a=use&amp;name=<?php echo $this->lang; ?>'; return false;" />
+			</div>
+		</form>
+	</div>
+</div>

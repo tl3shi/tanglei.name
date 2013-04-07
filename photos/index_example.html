@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Imagevue Gallery</title>
+		<link href="imagevue/css/forAdmin.css" rel="stylesheet" type="text/css" />
+		<link href="imagevue/css/forImagevue.css" rel="stylesheet" type="text/css" />
+		<meta http-equiv="Content-Type" content="text/html" />
+		<script type="text/javascript" src="imagevue/javascript/swfobject.js"></script>
+
+		<script type="text/javascript" src="imagevue/javascript/swfaddress.js"></script>
+		<style type="text/css">
+			/* hide from ie on mac \*/
+			html {
+				height: 100%;
+				overflow: hidden;
+			}
+			#imagevue {
+				height: 100%;
+			}
+			/* end hide */
+			body {
+				background-color: #222222;
+				margin: 0px;
+				padding: 0px;
+				height: 100%;
+			}
+			#forAdmin { display: none;}
+		</style>
+	</head>
+	<body>
+		<div id="imagevue">
+			<div id="na">
+				 	<h1>
+					Oops! - This page requires Flash Player and Javascript
+					</h1>
+					<br/>
+					Please make sure you have latest Flash Player installed and javascript is enabled in your browser.<br/>
+					&raquo; <a href="?p=gallery">Flash gallery</a><br/>
+					&raquo; <a href="http://get.adobe.com/flashplayer/">Get Flash Player</a><br/>
+					<br>
+					Optionally, you can view the HTML gallery page instead:<br/>
+					&raquo; <a href="?p=html">HTML Gallery</a><br/>
+					<br>
+					&raquo;
+					<h1>
+						www.imagevuex.com - flash photo gallery and slideshow
+					</h1>			
+				</div>
+		</div>
+		<script type="text/javascript">
+		//<![CDATA[
+			var flashVars = {
+				foreground_color: 'EEEEEE',
+				background_color: '222222'
+			};						
+			swfobject.embedSWF("imagevue/imagevue2.swf", "imagevue", "100%", "100%", "8.0.0", "imagevue/expressInstall.swf", flashVars, {allowScriptAccess: 'always', allowFullScreen: true, bgcolor: '#222222'}, {id: 'imagevue', name: 'imagevue'});
+		// ]]>
+		</script>		
+	</body>
+</html>

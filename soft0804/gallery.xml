@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="gbk"?>
+<tiltviewergallery>
+	<photos>
+		<photo imageurl="imgs/ding.jpg" linkurl="http://www.i3zhai.com">
+			<title>HengShan Mountain</title>
+			<description>the rain didnot ......</description>
+		</photo>
+		<photo imageurl="imgs/xx.jpg" linkurl="http://www.google.com">
+			<title>Image 2</title>
+			<description><![CDATA[This is a HTML text description. Supported tags are <b>bold</b>, <u>underline</u>, <i>italics</i>, linebreaks<br>and <font color="#ff0000" size="60">font tags</font>. Hyperlinks are not supported.]]></description>
+		</photo>
+		<photo imageurl="imgs/soft0804-2.jpg" >
+			<title>Image 3</title>
+		<description>This image has no link button becasue the 'linkurl' property was removed from the photo tag</description>			
+		</photo>
+		<photo imageurl="imgs/hh.jpg" linkurl="http://www.google.com" showFlipButton="false">
+			<title>Image 4</title>
+			<description>This image has no flip button because the 'showFlipButton' property was added to the photo tag</description>			
+		</photo>
+		<photo imageurl="imgs/py0804.jpg" linkurl="http://www.i3zhai.com">
+			<title>Image 5</title>
+			<description>ZhangDan had daile lingDai.My English Is So poor.</description>	
+
+		</photo>
+		<photo imageurl="imgs/ding.jpg" linkurl="http://www.i3zhai.com">
+			<title>Image 10</title>			
+		</photo>
+
+		<photo imageurl="imgs/soft0804-1.jpg" linkurl="http://www.i3zhai.com">
+			<title>Image 6</title>			
+		</photo>
+		<photo imageurl="imgs/soft0804.jpg" linkurl="http://www.i3zhai.com">
+			<title>Image 7</title>			
+		</photo>
+		<photo imageurl="imgs/yj.jpg" linkurl="http://www.i3zhai.com">
+			<title>Image 8</title>			
+		</photo>
+		<photo imageurl="imgs/ding.jpg" linkurl="http://www.i3zhai.com">
+			<title>Image 9</title>			
+		</photo>
+		
+	</photos>
+</tiltviewergallery>

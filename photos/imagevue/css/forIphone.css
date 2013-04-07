@@ -1,0 +1,21 @@
+/**, .dtree, #image #imagetext .description{ font-size: 20px; line-height: 20px; }
+.dtree { line-height: 30px; font-size: 30px;}
+#header { font-size: 30px; padding: 10px;}
+#subheader { padding: 5px 10px;}
+	#subheader .crumbs { padding: 5px 0 0 0;}
+	
+#content { padding: 0;}
+#navigation { position: absolute; top:0; right: 10px; }
+#navigation a { font-size: 30px; }
+#menu img { width: 40px; height: 40px;}
+*/
+* { font-family: helvetica, sans-serif !important;}
+body { 	min-height: 416px;}
+#folders .textblock { font-size: 14px;}
+#flashlink, #menu { display: none;}
+#header { padding: 10px;}
+.currentFolderTitle { padding: 5px 0 0 10px}
+#subheader { padding: 5px 0;}
+#content { padding:0;}
+#navigation { font-size: 12px; float: none; position: absolute; top:5px; right:0;}
+#image #myimage { max-width: 100%;height: auto; border:0; padding:0;}

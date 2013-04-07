@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lang>
+	<image>Фото</image>
+	<page>Страница</page>
+	<next_image>Следующая</next_image>
+	<previous_image>Предыдущая</previous_image>
+	<next_thumbnails>Следующая</next_thumbnails>
+	<previous_thumbnails>Предыдущая</previous_thumbnails>
+	<popup>Открыть popup</popup>
+	<window>Открыть в окне</window>
+	<download>Скачать</download>
+	<play>Слайдшоу</play>
+	<stop>Остановить</stop>
+	<showimage>Показать</showimage>
+	<showthumbnails>Миниатюры</showthumbnails>
+	<imageinfo>Описание</imageinfo>
+	<mainmenu>Меню</mainmenu>
+	<sendemail>Отправить</sendemail>
+	<login>Вход</login>
+	<logout>Выход</logout>
+	<open>Открыть</open>
+	<copylocation>Копировать ссылку</copylocation>
+	<enterfullscreen>На весь экран</enterfullscreen>
+	<exitfullscreen>Обратно</exitfullscreen>
+	<audio>Аудио</audio>
+	<volume>Громкость</volume>
+	<yourname>Ваше имя</yourname>
+	<youremail>Ваша почта</youremail>
+	<yourfriendsemail>Почта кому</yourfriendsemail>
+	<message>Сообщение</message>
+	<send>Послать</send>
+	<sent>Послано!</sent>
+	<contact>Контакт</contact>
+	<sendlink>Послать ссылку</sendlink>
+	<purchase>Купить</purchase>
+	<link>Ссылка</link>
+	<sfx>Контроль звука</sfx>
+	<empty_message>Пустое сообщение</empty_message>
+	<bad_email>Неправильный адрес</bad_email>
+	<cannot_open_template>Не могу открыть шаблон</cannot_open_template>
+	<could_not_mail>Не могу послать</could_not_mail>
+	<email_disabled>Email отключен</email_disabled>
+	<no_such_pic>Нет картинки</no_such_pic>
+	<path_is_empty>Пустой путь</path_is_empty>
+</lang>
