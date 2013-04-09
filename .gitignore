@@ -1,3 +1,5 @@
 wp-config.php
 .htaccess
+sitemap*
+wp-settings.php
 
