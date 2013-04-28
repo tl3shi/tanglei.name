@@ -1,11 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="掳脵露脠碌脴脥录,掳脵露脠碌脴脥录API拢卢掳脵露脠碌脴脥录脳脭露篓脪氓鹿陇戮脽拢卢掳脵露脠碌脴脥录脣霉录没录麓脣霉碌脙鹿陇戮脽" />
-<meta name="description" content="碌脴脥录脧脭脢戮脦脪脠楼鹿媒碌脛碌脴路陆拢卢碌脴脥录脮鹿脢戮脦禄脰脙" />
-<title>脤脝脌脷|脦脪脠楼鹿媒碌脛碌脴路陆</title>
-<!--脪媒脫脙掳脵露脠碌脴脥录API-->
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="keywords" content="百度地图,百度地图API，百度地图自定义工具，百度地图所见即所得工具" />
+<meta name="description" content="地图显示我去过的地方，地图展示位置" />
+<title>唐磊|我去过的地方</title>
+<!--引用百度地图API-->
 <style type="text/css">
     html,body{margin:0;padding:0;}
     .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
@@ -15,67 +15,71 @@
 </head>
 
 <body>
-  <!--掳脵露脠碌脴脥录脠脻脝梅-->
+  <!--百度地图容器-->
   <div style="width:697px;height:550px;border:#ccc solid 1px;" id="dituContent"></div>
 </body>
 <script type="text/javascript">
-    //麓麓陆篓潞脥鲁玫脢录禄炉碌脴脥录潞炉脢媒拢潞
+    //创建和初始化地图函数：
     function initMap(){
-        createMap();//麓麓陆篓碌脴脥录
-        setMapEvent();//脡猫脰脙碌脴脥录脢脗录镁
-        addMapControl();//脧貌碌脴脥录脤铆录脫驴脴录镁
-        addMarker();//脧貌碌脴脥录脰脨脤铆录脫marker
+        createMap();//创建地图
+        setMapEvent();//设置地图事件
+        addMapControl();//向地图添加控件
+        addMarker();//向地图中添加marker
     }
     
-    //麓麓陆篓碌脴脥录潞炉脢媒拢潞
+    //创建地图函数：
     function createMap(){
-        var map = new BMap.Map("dituContent");//脭脷掳脵露脠碌脴脥录脠脻脝梅脰脨麓麓陆篓脪禄赂枚碌脴脥录
-        var point = new BMap.Point(119.589768,31.996634);//露篓脪氓脪禄赂枚脰脨脨脛碌茫脳酶卤锚
-        map.centerAndZoom(point,5);//脡猫露篓碌脴脥录碌脛脰脨脨脛碌茫潞脥脳酶卤锚虏垄陆芦碌脴脥录脧脭脢戮脭脷碌脴脥录脠脻脝梅脰脨
-        window.map = map;//陆芦map卤盲脕驴麓忙麓垄脭脷脠芦戮脰
+        var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+        var point = new BMap.Point(119.589768,31.996634);//定义一个中心点坐标
+        map.centerAndZoom(point,5);//设定地图的中心点和坐标并将地图显示在地图容器中
+        window.map = map;//将map变量存储在全局
     }
     
-    //碌脴脥录脢脗录镁脡猫脰脙潞炉脢媒拢潞
+    //地图事件设置函数：
     function setMapEvent(){
-        map.enableDragging();//脝么脫脙碌脴脥录脥脧脳搂脢脗录镁拢卢脛卢脠脧脝么脫脙(驴脡虏禄脨麓)
-        map.enableScrollWheelZoom();//脝么脫脙碌脴脥录鹿枚脗脰路脜麓贸脣玫脨隆
-        map.enableDoubleClickZoom();//脝么脫脙脢贸卤锚脣芦禄梅路脜麓贸拢卢脛卢脠脧脝么脫脙(驴脡虏禄脨麓)
-        map.enableKeyboard();//脝么脫脙录眉脜脤脡脧脧脗脳贸脫脪录眉脪脝露炉碌脴脥录
+        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard();//启用键盘上下左右键移动地图
     }
     
-    //碌脴脥录驴脴录镁脤铆录脫潞炉脢媒拢潞
+    //地图控件添加函数：
     function addMapControl(){
-        //脧貌碌脴脥录脰脨脤铆录脫脣玫路脜驴脴录镁
+        //向地图中添加缩放控件
 	var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
 	map.addControl(ctrl_nav);
-        //脧貌碌脴脥录脰脨脤铆录脫脣玫脗脭脥录驴脴录镁
+        //向地图中添加缩略图控件
 	var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
 	map.addControl(ctrl_ove);
-        //脧貌碌脴脥录脰脨脤铆录脫卤脠脌媒鲁脽驴脴录镁
+        //向地图中添加比例尺控件
 	var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
 	map.addControl(ctrl_sca);
     }
     
-    //卤锚脳垄碌茫脢媒脳茅
-    var markerArr = [{title:"鲁枚脡煤",content:"脰脴脟矛脢脨脢炉脰霉脧脴",point:"108.277225|30.208928",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		 ,{title:"脠媒脛锚-赂脽脰脨(no.29)",content:"脰脴脟矛碌脷29脰脨脩搂",point:"106.510467|29.555716",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		 ,{title:"脣脛脛锚-脰脨脛脧麓贸脩搂",content:"脭脷脰脨脛脧麓贸脩搂麓媒脕脣虏卯虏禄露脿4脛锚",point:"112.998381|28.145957",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		 ,{title:"鹿贸脰脻-脥镁脛镁脧脴-脰搂陆脤",content:"<a href= 'http://www.tanglei.name/category/my-life/volenteer-teaching-in-guizhou/'  target=_blank>鹿贸脰脻脰搂陆脤脨脨-赂脨露炉-脤氓脩茅</a>",point:"104.547156|26.651192",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		  ,{title:"脤脷脩露-脢碌脧掳",content:"2011.6--2012.1<a href='http://www.tanglei.name/tag/%e8%85%be%e8%ae%af%e5%ae%9e%e4%b9%a0/'&nbsp;target='_blank'>脡卯脹脷脤脷脩露脳脺虏驴脢碌脧掳</a>",point:"113.94207|22.54645",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		,{title:"脦盲潞潞-脙忙脤脷脩露",content:"脤脷脩露脢碌脧掳脡煤卤脢脢脭+脙忙脢脭-<br/>脣鲁卤茫脗脙脫脦",point:"114.365584|30.535143",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		 ,{title:"脧脙脙脜-脗脙脫脦",content:"2010脢卯录脵拢卢脧脙脙脜脗脙脫脦拢卢脌脧陆茫脛脟麓媒脕脣掳毛赂枚脭脗",point:"118.0967|24.496071",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		 ,{title:"鹿茫脰脻-脗脙脫脦",content:"1隆垄路谩脤茂脰煤脩搂陆冒禄帽碌脙脮脽鹿茫脰脻脨脨<br/>2隆垄<a href='http://www.tanglei.name/come-back-from-chengdu-to-travel-with-tencent/' target='_blank'>脤脷脩露虏驴脙脜脗脙脫脦-路卢脴庐鲁陇脗隆</a><br/>3隆垄脛脧路陆脪陆驴脝麓贸脩搂脥卢脩搂脥忙",point:"113.276892|23.141851",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		 ,{title:"脧茫赂脹-脗脙脫脦",content:"脧茫赂脹脪禄脠脮脫脦",point:"114.192448|22.304286",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		 ,{title:"掳脛脙脜-脗脙脫脦",content:"掳脛脙脜脪禄脠脮脫脦",point:"113.581306|22.149029",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		  ,{title:"卤卤戮漏",content:"1隆垄2010脛锚鹿煤脟矛-卤卤戮漏脗脙脫脦<br/>2隆垄2012脛锚麓贸脣脛脡脧脩搂脝脷拢卢脟氓禄陋卤拢脩脨脙忙脢脭拢卢脧脗脩搂脝脷拢卢脟氓禄陋脳枚卤脧脡猫<br/>3隆垄...脢拢脧脗录赂脛锚脩脨戮驴脡煤",point:"116.409336|39.934809",isOpen:1,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		 ,{title:"脠脮卤戮-脗脙脫脦",content:"路谩脤茂脰煤脩搂陆冒禄帽碌脙脮脽麓煤卤铆-<br/>路脙脠脮陆禄脕梅隆戮露芦戮漏隆垄脙没鹿脜脦脻隆驴",point:"139.201287|36.634958",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		,{title:"脛脧戮漏-脗脙脫脦",content:"麓贸脣脛脧脗脝脷驴陋脩搂脢卤拢卢脟掳脥霉脛脧戮漏脗脙脫脦",point:"118.780107|32.060847",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		 ,{title:"鲁脡露录-脠铆录镁麓贸脠眉&脗脙脫脦",content:"鲁脡露录-脠铆录镁麓贸脠眉隆拢脳茅脦炉禄谩赂酶卤篓脧煤脗路路脩拢卢麓脫脤脷脩露脟毛录脵脟掳脥霉脗脙脫脦",point:"104.048472|30.703477",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		,{title:"潞录脰脻",content:"1隆垄赂脽2脢卤脪禄麓脦脳脽脟脳脝脻<br/>2隆垄麓贸脠媒脢卯录脵卤拢脩脨脙忙脮茫麓贸",point:"120.16677|30.284695",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		 ,{title:"卤卤麓梅潞脫-脗脙脫脦",content:"12脛锚5脭脗卤卤麓梅潞脫-脗脙脫脦",point:"119.485358|39.843214",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-		 ];
+    //标注点数组
+    var markerArr = [{title:"出生",content:"重庆市石柱县",point:"108.277225|30.208928",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ,{title:"三年-高中(no.29)",content:"重庆第29中学",point:"106.510467|29.555716",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ,{title:"四年-中南大学",content:"在中南大学待了差不多4年",point:"112.998381|28.145957",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ,{title:"贵州-威宁县-支教",content:"<a href= 'http://www.tanglei.name/category/my-life/volenteer-teaching-in-guizhou/'  target=_blank>贵州支教行-感动-体验</a>",point:"104.547156|26.651192",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		  ,{title:"腾讯-实习",content:"2011.6--2012.1<a href='http://www.tanglei.name/tag/%e8%85%be%e8%ae%af%e5%ae%9e%e4%b9%a0/'&nbsp;target='_blank'>深圳腾讯总部实习</a>",point:"113.94207|22.54645",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		,{title:"武汉-面腾讯",content:"腾讯实习生笔试+面试-<br/>顺便旅游",point:"114.365584|30.535143",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ,{title:"厦门-旅游",content:"2010暑假，厦门旅游，老姐那待了半个月",point:"118.0967|24.496071",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ,{title:"广州-旅游",content:"1、丰田助学金获得者广州行<br/>2、<a href='http://www.tanglei.name/come-back-from-chengdu-to-travel-with-tencent/' target='_blank'>腾讯部门旅游-番禺长隆</a><br/>3、南方医科大学同学玩",point:"113.276892|23.141851",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ,{title:"香港-旅游",content:"香港一日游",point:"114.192448|22.304286",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ,{title:"澳门-旅游",content:"澳门一日游",point:"113.581306|22.149029",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		  ,{title:"北京",content:"1、2010年国庆-北京旅游<br/>2、2012年大四上学期，清华保研面试，下学期，清华做毕设<br/>3、...剩下几年研究生",point:"116.409336|39.934809",isOpen:1,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ,{title:"日本-旅游",content:"丰田助学金获得者代表-<br/>访日交流【东京、名古屋】",point:"139.201287|36.634958",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		,{title:"南京-旅游",content:"大四下期开学时，前往南京旅游",point:"118.780107|32.060847",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ,{title:"成都-软件大赛&旅游",content:"成都-软件大赛。组委会给报销路费，从腾讯请假前往旅游",point:"104.048472|30.703477",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		,{title:"杭州",content:"1、高2时一次走亲戚<br/>2、大三暑假保研面浙大",point:"120.16677|30.284695",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ,{title:"北戴河-旅游",content:"12年5月北戴河-旅游",point:"119.485358|39.843214",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ,{title:"济南-旅游",content:"2013-清明，济南-旅游:趵突泉,大明湖",point:"117.022886|36.667637",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ,{title:"泰山-旅游",content:"2013-清明，泰山旅游",point:"117.093363|36.266957",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ,{title:"石家庄-旅游",content:"2013清明：石家庄市,井陉县,苍岩山,",point:"114.151985|37.83701",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+         ,{title:"上海-旅游",content:"2012国庆,上海-旅游,",point:"121.477838|31.247186",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+         ];
 
-    //麓麓陆篓marker
+    //创建marker
     function addMarker(){
         for(var i=0;i<markerArr.length;i++){
             var json = markerArr[i];
@@ -117,17 +121,19 @@
 			})()
         }
     }
-    //麓麓陆篓InfoWindow
+    //创建InfoWindow
     function createInfoWindow(i){
         var json = markerArr[i];
         var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
         return iw;
     }
+    
+	 //创建一个Icon
     function createIcon(json){
-        var icon = new BMap.Icon("http://dev.baidu.com/wiki/static/map/API/img/ico-marker.gif", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
+        var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
         return icon;
     }
-
-    initMap();//麓麓陆篓潞脥鲁玫脢录禄炉碌脴脥录
+    
+    initMap();//创建和初始化地图
 </script>
 </html>

@@ -3,6 +3,7 @@
 	<imagevue>
 		<settings>
 			<language>chinese_simp</language>
+			<sitetitle>唐磊的相册|www.tanglei.name</sitetitle>
 			<email>
 				<allowEmail>true</allowEmail>
 				<ownerEmail>admin@tanglei.name</ownerEmail>
