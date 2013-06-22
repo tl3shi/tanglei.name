@@ -1,0 +1,85 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+	BibTex Batch Export,latex论文引用批量导出| tanglei的blog|唐磊的个人博客	
+</title>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+    $("#btn_tijiao").click(function() 
+        {
+        var paper_list = $("#paper_list").val();
+        if(paper_list == '') 
+        {
+            alert('input paper list, one paper one line');
+            return;    
+        }
+        var json = $("#json").val();
+        $.post("batchbibtex.php", 
+                {"paper_list": paper_list, "json":'false'}, 
+                function (data) 
+                {
+                    if (data) 
+                    {
+                        $("#flushwindow").hide();
+                        
+                        $("#result").removeClass("bibinfohide");
+                        $("#result").addClass("bibinforesult");
+                        $("#result").html(data);
+                    } else 
+                    {
+                        $("#flushwindow").hide();
+
+                        $("#result").html("Sorry, no reuslt got");
+                    }
+               });
+        $("#flushwindow").show();
+        });
+
+}); 
+</script>
+<style type="text/css">
+    .bibinforesult
+    {
+        width: 600px; 
+        border: solid 1px #669e00;
+        background-color: #c2df8e; 
+        padding: 0.5em;
+    }
+    .paperlist
+    {
+        width: 620px; 
+        border: solid 1px #669e00;
+        background-color: #c2df8e; 
+        padding: 0.5em;
+    }
+    .bibinfohide
+    {
+        display:none;
+    }
+
+    .flushwindow
+    {
+        display:block;
+        position:absolute;
+        left:30%;top:30%;
+        width:120px;height:40px;
+        padding:8px;border:2px solid orange;
+        background-color: #c2df8e; 
+        z-index:1008;
+        overflow:auto; 
+    }
+</style>
+Paper list: <br/>
+<form id="form" name="paper_form" action="batchbibtex.php" method="post">
+    <textarea id="paper_list" class= "paperlist" name="paper_list" rows="10" ></textarea><br/>
+    <!--json:<input type="checkbox" name="json" id="json"></input>-->
+    <input type="button" id="btn_tijiao" value="Get it"></input>
+    <br>
+    <div id="flushwindow" class="flushwindow" style="display:none">fetching......</div>
+    <div id="result" class="bibinfohide">
+    </div>
+</form>
+</html>
